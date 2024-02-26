@@ -1,0 +1,136 @@
+/* Variables de color */
+:root {
+  --curious-blue-50: #f0f9ff;
+  --curious-blue-100: #e0f1fe;
+  --curious-blue-200: #bae5fd;
+  --curious-blue-300: #7dd0fc;
+  --curious-blue-400: #37b9f9;
+  --curious-blue-500: #0d9fe7;
+  --curious-blue-600: #0180c8;
+  --curious-blue-700: #0266a2;
+  --curious-blue-800: #075785;
+  --curious-blue-900: #0c486e;
+  --curious-blue-950: #082e49;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../Img/fondo.jpg");
+  font-family: Montserrat, sans-serif;
+  /* background-color: var(--curious-blue-600); */
+  color: #333;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.header h1 {
+  font-family: Tangerine, serif;
+  font-size: 5em;
+  color: #fff;
+  font-style: oblique;
+}
+
+.img-header {
+  width: 100px;
+  height: 100px;
+}
+
+.nav {
+  background-color: var(--curious-blue-300);
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px 0; /* Añadimos espacio interno arriba y abajo */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agregamos una ligera sombra */
+}
+
+.nav ul {
+  font-size: 1.3em;
+  list-style: none;
+  padding: 0; /* Eliminamos el relleno predeterminado de la lista */
+}
+
+.nav ul li {
+  display: inline-block; /* Mostramos los elementos en línea */
+  margin: 0 10px; /* Añadimos espacio entre elementos */
+}
+
+.nav ul li a {
+  text-decoration: none; /* Quitamos el subrayado de los enlaces */
+  color: #fff; /* Cambiamos el color del texto a blanco */
+  padding: 5px 10px; /* Añadimos espacio interno a los enlaces */
+  border-radius: 5px; /* Añadimos bordes redondeados */
+}
+
+.nav ul li:hover {
+  background-color: var(
+    --curious-blue-400
+  ); /* Cambiamos el color de fondo al pasar el cursor */
+}
+
+.contendor-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card-contenido {
+  background-color: #fff;
+  background-color: var(--curious-blue-200);
+  border-radius: 8px;
+  box-shadow: 0 6px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.card-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: Kode Mono, monospace;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+footer {
+  height: 50px;
+  width: 100%;
+  background-color: var(--curious-blue-300);
+}
+
+footer p {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2em;
+  margin: 0;
+  text-align: center;
+  color: #5e5c5c;
+}
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 768px) {
+  .contendor-card {
+    grid-template-columns: 1fr;
+  }
+  footer p {
+    font-size: 1em;
+  }
+}
