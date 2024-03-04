@@ -5,17 +5,41 @@ const FILES_TO_CACHE = [
 ];
 
 self.addEventListener('install', event => {
+    console.log('[Service Worker] Instalando...');
+
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(FILES_TO_CACHE))
-            .catch(error => console.error('Error al precachear archivos:', error))
+            .then(cache => {
+                console.log('[Service Worker] Caché abierta');
+                return cache.addAll(FILES_TO_CACHE);
+            })
+    );
+});
+
+self.addEventListener('activate', event => {
+    console.log('[Service Worker] Activando...');
+
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.map(cacheName => {
+                    if (cacheName !== CACHE_NAME) {
+                        console.log('[Service Worker] Eliminando caché antigua:', cacheName);
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        })
     );
 });
 
 self.addEventListener('fetch', event => {
+    console.log('[Service Worker] Intercepción de fetch:', event.request.url);
+
     event.respondWith(
         caches.match(event.request)
-            .then(response => response || fetch(event.request))
-            .catch(error => console.error('Error al interceptar la solicitud:', error))
+            .then(response => {
+                return response || fetch(event.request);
+            })
     );
 });
